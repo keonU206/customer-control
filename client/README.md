@@ -1,6 +1,9 @@
 # Getting Started with Create React App
 
 리액트와 노드를 이용한 고객관리 프로젝트
+react 사용
+express 서버 구축
+material-ui 사용
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
