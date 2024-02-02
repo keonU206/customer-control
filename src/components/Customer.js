@@ -1,33 +1,18 @@
 import React from "react";
+import { TableRow, TableCell } from "@mui/material";
 
 const Customer = ({ id, image, name, birthday, gender, job }) => {
   return (
-    <div>
-      {/* CustomerProfile 및 CustomerInfo에 prop을 직접 전달 */}
-      <CustomerProfile image={image} name={name} id={id} />
-      <CustomerInfo birthday={birthday} gender={gender} job={job} />
-    </div>
-  );
-};
-
-const CustomerProfile = ({ image, name, id }) => {
-  return (
-    <div>
-      <img src={image} alt="profile photo" />
-      <h2>
-        {name}({id})
-      </h2>
-    </div>
-  );
-};
-
-const CustomerInfo = ({ birthday, gender, job }) => {
-  return (
-    <div>
-      <p>{birthday}</p>
-      <p>{gender}</p>
-      <p>{job}</p>
-    </div>
+    <TableRow>
+      <TableCell>{id}</TableCell>
+      <TableCell>
+        <img src={image} alt="customer photo" />
+      </TableCell>
+      <TableCell>{name}</TableCell>
+      <TableCell>{birthday}</TableCell>
+      <TableCell>{gender}</TableCell>
+      <TableCell>{job}</TableCell>
+    </TableRow>
   );
 };
 

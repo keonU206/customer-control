@@ -1,5 +1,28 @@
-import "./App.css";
+import React from "react";
+import {
+  TableRow,
+  TableHead,
+  TableBody,
+  Table,
+  TableCell,
+  Paper,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material";
+import { styled } from "@mui/system";
 import Customer from "./components/Customer";
+
+const theme = createTheme();
+
+const StyledPaper = styled(Paper)({
+  width: "100%",
+  marginTop: theme.spacing(3),
+  overflowX: "auto",
+});
+
+const StyledTable = styled(Table)({
+  minWidth: 1080,
+});
 
 function App() {
   const customers = [
@@ -28,13 +51,29 @@ function App() {
       job: "주부",
     },
   ];
+
   return (
-    <div className="gray-background">
-      {customers.map((customer) => (
-        // map 함수 내에서 반환값을 정상적으로 작성
-        <Customer key={customer.id} {...customer} />
-      ))}
-    </div>
+    <ThemeProvider theme={theme}>
+      <StyledPaper>
+        <StyledTable>
+          <TableHead>
+            <TableRow>
+              <TableCell>번호</TableCell>
+              <TableCell>사진</TableCell>
+              <TableCell>이름</TableCell>
+              <TableCell>생년월일</TableCell>
+              <TableCell>성별</TableCell>
+              <TableCell>직업</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {customers.map((customer) => (
+              <Customer key={customer.id} {...customer} />
+            ))}
+          </TableBody>
+        </StyledTable>
+      </StyledPaper>
+    </ThemeProvider>
   );
 }
 
